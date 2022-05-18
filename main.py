@@ -41,7 +41,7 @@ def check_answer(q_num, answer, A):
 
 while True:
     try:
-        q_num, answer = ask(2, Q)
+        q_num, answer = ask(160, Q)
         asked.append(q_num)
         verdict, correct = check_answer(q_num, answer, A)
         if verdict:
