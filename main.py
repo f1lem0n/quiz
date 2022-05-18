@@ -13,7 +13,7 @@ with open('pytaniaOWI.txt', encoding='utf-8') as f:
         Q.append(lines[:4])
         lines = lines[4:]
 
-A = 'bcabacbababcabcbbcababcababcabcabacabcaabcbacabcbacabsbbbcscbababcabacbabaabcaababcabacbacbcabbabababacaacabcaaaacbababacbabcababbacbcabaababbbcababcabbcaabacab'
+A = 'bcabacbababcabcbbcababcababcabcabacabcaabcbacabcbacababbbcacbababcabacbabaabcaababcabacbacbcabbabababacaacabcaaaacbababacbabcababbacbcabaababbbcababcabbcaabacab'
 asked = []
 
 
