@@ -14,7 +14,7 @@ with open('pytaniaOWI.txt', encoding='utf-8') as f:
         lines = lines[4:]
 
 A = 'bcabacbababcabcbbcababcababcabcabacabcaabcbacabcbacababbbcacbababcabacbabaabcaababcabacbacbcabbabababacaacabcaaaacbababacbabcababbacbcabaababbbcababcabbcaabacab'
-asked = []
+asked = [1]
 
 
 def ask(n, Q):
@@ -23,6 +23,12 @@ def ask(n, Q):
         for line in Q[q_num]:
             print(line)
         answer = input('Podaj odpowiedź (a/b/c): ').lower()
+    else:
+        q_num = r.randint(0, n)
+        if q_num not in asked:
+            for line in Q[q_num]:
+                print(line)
+            answer = input('Podaj odpowiedź (a/b/c): ').lower()
     return q_num, answer
 
 
@@ -34,15 +40,20 @@ def check_answer(q_num, answer, A):
 
 
 while True:
-    q_num, answer = ask(160, Q)
-    asked.append(q_num)
-    verdict, correct = check_answer(q_num, answer, A)
-    if verdict:
-        print('Gooooood, Anakin, good...')
-    else:
-        print('YOU WERE SUPPOSE TO DESTROY THE SITH NOT JOIN THEM!')
-        print(f'Prawidłowa odpowiedź to: {correct}')
-    if input('Type any key to continue\nType q to exit\n') in ('q', 'Q'):
+    try:
+        q_num, answer = ask(2, Q)
+        asked.append(q_num)
+        verdict, correct = check_answer(q_num, answer, A)
+        if verdict:
+            print('Gooooood, Anakin, good...')
+        else:
+            print('YOU WERE SUPPOSE TO DESTROY THE SITH NOT JOIN THEM!')
+            print(f'Prawidłowa odpowiedź to: {correct}')
+        if input('Type any key to continue\nType q to exit\n') in ('q', 'Q'):
+            sys.exit()
+        else:
+            continue
+    except UnboundLocalError:
+        print('You have finished all the available questions... but you are not a master yet!\nPREPARE FOR THE FINAL '
+              'EXAM!')
         sys.exit()
-    else:
-        continue
