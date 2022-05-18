@@ -28,7 +28,7 @@ def ask(n, Q):
 
 def check_answer(q_num, answer, A):
     if answer == A[q_num]:
-        return True
+        return True, A[q_num]
     else:
         return False, A[q_num]
 
